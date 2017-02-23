@@ -10,9 +10,10 @@
  */
 class Bootstrap extends Yaf_Bootstrap_Abstract{
 
+    private $_config;
     public function _initConfig() {
-        $config = Yaf_Application::app()->getConfig();
-        Yaf_Registry::set("config", $config);
+        $this->_config = Yaf_Application::app()->getConfig();
+        Yaf_Registry::set("config", $this->_config);
     }
 
     public function _initDefaultName(Yaf_Dispatcher $dispatcher) {
@@ -26,4 +27,9 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
          */
         $router->addConfig(Yaf_Registry::get("config")->routes);
     }
+
+    public function _initDb(Yaf_Dispatcher $dispatcher){
+         $this->_db = new Db($this->_config->mysql->read->toArray());
+         Yaf_Registry::set('_db', $this->_db);
+      }
 }
