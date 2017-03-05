@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="688e98f0-d733-447e-b792-c9c5718aac6e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/index/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/index/index.phtml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/log.xml" afterPath="$PROJECT_DIR$/application/mapper/log.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Bootstrap.php" afterPath="$PROJECT_DIR$/application/Bootstrap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Index.php" afterPath="$PROJECT_DIR$/application/controllers/Index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/library/PhpBatis.php" afterPath="$PROJECT_DIR$/application/library/PhpBatis.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Admin.php" afterPath="$PROJECT_DIR$/application/models/Admin.php" />
-    </list>
+    <list default="true" id="688e98f0-d733-447e-b792-c9c5718aac6e" name="Default" comment="" />
     <ignored path="g7love.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -122,6 +112,20 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="g7love" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="g7love" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -194,12 +198,12 @@
       <workItem from="1487853478775" duration="7432000" />
       <workItem from="1487926062514" duration="3398000" />
       <workItem from="1487936823798" duration="7524000" />
-      <workItem from="1488627606868" duration="28869000" />
+      <workItem from="1488627606868" duration="30557000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54403000" />
+    <option name="totallyTimeSpent" value="56091000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -514,16 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/library/PhpBatis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1782">
-          <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
-          <folding>
-            <element signature="e#6#93#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conf/application.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -644,19 +638,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/library/PhpBatis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4752">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#6#93#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
