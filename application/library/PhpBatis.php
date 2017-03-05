@@ -109,22 +109,30 @@ class PhpBatis{
         return $result;
     }
 
-    public function queryOne($sqlId, $parameter=null, &$result=null){
+    public function  selectOne($sqlId, $parameter=null, &$result=null){
+        $sqlIdArr = explode('.',$sqlId);
+        return $this->setMapper(APP_PATH."/application/mapper/".$sqlIdArr[0].".xml")->queryOne($sqlIdArr[1], $parameter,$result);
+    }
+
+    public function queryOne($sqlId, $parameter=null, $result=null){
         $result = $this->replaceTagAndExecutor($sqlId, 'queryRow', $parameter);
         return $result;
     }
 
-    public function  selectList($sqlId, $parameter=null, &$result=null){
-
-        //$result = $this->dao->setMapper(APP_PATH."/application/log.xml")->queryList("test", []);
-
+    public function  selectList($sqlId, $parameter=null, $result=null){
         $sqlIdArr = explode('.',$sqlId);
-        return $this->setMapper(APP_PATH."/application/".$sqlIdArr[0].".xml")->queryList($sqlIdArr[1], $parameter,$result);
-        
+        return $this->setMapper(APP_PATH."/application/mapper/".$sqlIdArr[0].".xml")->queryList($sqlIdArr[1], $parameter,$result);
     }
+
     public function queryList($sqlId, $parameter=null, &$result=null){
         $result = $this->replaceTagAndExecutor($sqlId, 'query', $parameter);
         return $result;
+    }
+
+
+    public function  selectPage($sqlId, $parameter=null, $pageSize=10, $page=0){
+        $sqlIdArr = explode('.',$sqlId);
+        return $this->setMapper(APP_PATH."/application/mapper/".$sqlIdArr[0].".xml")->queryPagedList($sqlIdArr[1], $parameter,$pageSize, $page);
     }
 
     public function queryPagedList($sqlId, $parameter=null, $pageSize=10, $page=0){
@@ -132,14 +140,29 @@ class PhpBatis{
     }
 
     public function insert($sqlId, $parameter=null){
+        $sqlIdArr = explode('.',$sqlId);
+        return $this->setMapper(APP_PATH."/application/mapper/".$sqlIdArr[0].".xml")->insertData($sqlIdArr[1], $parameter);
+    }
+
+    public function insertData($sqlId, $parameter=null){
         return $this->exec($sqlId, $parameter);
     }
 
     public function update($sqlId, $parameter=null){
+        $sqlIdArr = explode('.',$sqlId);
+        return $this->setMapper(APP_PATH."/application/mapper/".$sqlIdArr[0].".xml")->updateData($sqlIdArr[1], $parameter);
+    }
+
+    public function updateData($sqlId, $parameter=null){
         return $this->exec($sqlId, $parameter);
     }
 
     public function delete($sqlId, $parameter=null){
+        $sqlIdArr = explode('.',$sqlId);
+        return $this->setMapper(APP_PATH."/application/mapper/".$sqlIdArr[0].".xml")->deleteData($sqlIdArr[1], $parameter);
+    }
+
+    public function deleteData($sqlId, $parameter=null){
         return $this->exec($sqlId, $parameter);
     }
 
@@ -148,7 +171,7 @@ class PhpBatis{
         $parameterClass = $qp->attr('parameterClass');
         $sqlText		= $qp->text();
 
-        preg_match_all( "/#(.*)#/", $sqlText, $match );
+        preg_match_all( "/#(.*)#/", $sqlText, $match);
 
         $sqlText 		= phpBatis::replaceSqlTag($sqlText, $match);
 

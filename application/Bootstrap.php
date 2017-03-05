@@ -16,14 +16,20 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
         Yaf_Registry::set("config", $this->_config);
     }
 
-    public function _initDefaultName(Yaf_Dispatcher $dispatcher) {
+    /*public function _initDefaultName(Yaf_Dispatcher $dispatcher) {
         $dispatcher->setDefaultModule("Index")->setDefaultController("Index")->setDefaultAction("index");
-    }
-
-    /*public function _initRoute(Yaf_Dispatcher $dispatcher) {
-        $router = Yaf_Dispatcher::getInstance()->getRouter();
-        $router->addConfig(Yaf_Registry::get("config")->routes);
     }*/
+
+    public function _initRoute(Yaf_Dispatcher $dispatcher) {
+
+        Yaf_Dispatcher::getInstance()->getRouter()->addRoute(
+            "supervar",new Yaf_Route_Supervar("r")
+        );
+
+        Yaf_Dispatcher::getInstance()->getRouter()->addRoute(
+            "simple", new Yaf_Route_simple('m', 'c', 'a')
+        );
+    }
 
     public function _initDb(Yaf_Dispatcher $dispatcher){
         $db = new PhpBatis(APP_PATH.'/application/config.xml');

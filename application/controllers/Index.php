@@ -8,16 +8,19 @@
 class IndexController extends Yaf_Controller_Abstract {
     private $_user;
     public function init(){
-        //Yaf_Dispatcher::getInstance()->disableView();
+        if ($this->getRequest()->isXmlHttpRequest()) {
+            Yaf_Dispatcher::getInstance()->disableView();
+        }
         $this->_user = new AdminModel();
     }
-    public function indexAction() {//默认Action
-        return $this->_user->Registered();
-        $this->getView()->assign("content", "Hello lizhengxiang");
+    
+    public function dexAction() {//默认Action
+        $dat =  $this->_user->Registered();
+        $this->getView()->assign($dat);
     }
 
     public function searchAction() {//默认Action
-        //return "lizhengxiang";
+        var_dump("lizhengxiang");exit();
         $this->getView()->assign("content", "Hello 3333");
     }
 }
