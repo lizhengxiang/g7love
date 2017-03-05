@@ -20,16 +20,13 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
         $dispatcher->setDefaultModule("Index")->setDefaultController("Index")->setDefaultAction("index");
     }
 
-    public function _initRoute(Yaf_Dispatcher $dispatcher) {
+    /*public function _initRoute(Yaf_Dispatcher $dispatcher) {
         $router = Yaf_Dispatcher::getInstance()->getRouter();
-        /**
-         * 添加配置中的路由
-         */
         $router->addConfig(Yaf_Registry::get("config")->routes);
-    }
+    }*/
 
     public function _initDb(Yaf_Dispatcher $dispatcher){
-         $this->_db = new Db($this->_config->mysql->read->toArray());
-         Yaf_Registry::set('_db', $this->_db);
-      }
+        $db = new PhpBatis(APP_PATH.'/application/config.xml');
+        Yaf_Registry::set('_db', $db);
+    }
 }

@@ -66,6 +66,7 @@ abstract class Yaf_Bootstrap_Abstract {
     /* properties */
 
     /* methods */
+
 }
 
 final class Yaf_Dispatcher {

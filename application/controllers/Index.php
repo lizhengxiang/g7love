@@ -6,13 +6,13 @@
  * Time: 下午9:01
  */
 class IndexController extends Yaf_Controller_Abstract {
-    //private $_user;
+    private $_user;
     public function init(){
+        //Yaf_Dispatcher::getInstance()->disableView();
         $this->_user = new AdminModel();
-        //var_dump($this->_user);exit();
     }
     public function indexAction() {//默认Action
-        //var_dump($this->_user->Registered());exit();
+        return $this->_user->Registered();
         $this->getView()->assign("content", "Hello lizhengxiang");
     }
 

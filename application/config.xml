@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+	<!-- 全局别名 -->
+	<typeAliases>
+		<typeAlias key="DAOPATH" value="application/"/>
+	</typeAliases>
+	
+	<!-- 数据源 -->
+    <databases>
+    	<database id="sysvotes" default="true">
+    		<property name="driver" value="pdo"/>
+    		<property name="charset" value="UTF8"/>
+    		<property name="dsn" value="mysql:host=127.0.0.1;dbname=cat_joint"/>
+    		<property name="username" value="lzx"/>
+    		<property name="password" value="lzx"/>
+    	</database>
+    	
+    	<database id="syshotels">
+    		<property name="driver" value="pdo"/>
+    		<property name="dsn" value="mysql:host=127.0.0.1;dbname=cat_joint"/>
+    		<property name="username" value="lzx"/>
+    		<property name="password" value="lzx"/>
+    	</database>
+    </databases>
+    
+   <!-- <caches>
+	    <cache id="memcache" default="true">
+	    	<property name="type" value="memcache"/>
+	    	<property name="host" value="localhost"/>
+	    	<property name="port" value="11211"/>
+	    </cache>
+	    
+	    <cache id="file">
+	    	<property name="type" value="file"/>
+	    	<property name="filepath" value="Cache/Temp/"/>
+	    </cache>
+    </caches>-->
+</configuration>

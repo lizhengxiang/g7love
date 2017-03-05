@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<mapper>
+	<sql id="allFields">`TIMESTAMP`, logger, `LEVEL`, message, thread, `FILE`, line</sql>
+	
+	<!-- 
+	id:作为Batis引用的唯一标识
+	resultClass:返回数据的封装为Class对象。若没有此参数，将不会对结果封装为对象
+	cacheId:缓存配置标签ID。目前支持：file、memcache
+	cacheTime:缓存超时时间，单位秒
+	cahce:是否缓存,默认false
+	prepare:是否使用PDO的prepare,默认true
+	 -->
+	<select id="SelectAll" resultClass="Log" cacheId="file" cacheTime="3600" cache="true" prepare="true">
+		SELECT
+		#allFields#
+		FROM
+		log2
+		WHERE
+		thread > :number
+	</select>
+	
+	<!--
+	对于复杂的搜索条件，phpBatis不支持if-else或trim这样的标签。 
+	解决方法：关闭使用PDO的prepare绑定，将搜索条件在PHP中处理好，然后传给phpBatis直接替换。
+	 -->
+	<select id="getLogs" cache="false" prepare="false">
+		SELECT
+		#allFields#
+		FROM
+		log2
+		WHERE
+		:terms
+	</select>
+
+	<select id="test">
+		select `id`, `truckid`,`targetorgcode`,`targetorgroot`
+		from joint_truck
+		where  deleted = 0 and status = 1
+	</select>
+
+	<insert id="insertlog">
+		insert into log2
+		(#allFields#)
+		values
+		(:timestamp, :logger, :level, :message, :thread, :file, :line)
+	</insert>
+
+	<update id="Update" parameterClass="Person">
+		update log2 set
+		logger = :logger,
+		message = :message,
+		thread = :thread,
+		line = :line
+		where `timestamp`=:timestamp
+	</update>
+
+	<delete id="Delete" parameterClass="int">
+		delete from PERSON
+		where PER_ID = #value#
+	</delete>
+
+</mapper>
