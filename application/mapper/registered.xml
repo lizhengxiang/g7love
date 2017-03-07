@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<mapper>
+    <sql id="allFields">`TIMESTAMP`, logger, `LEVEL`, message, thread, `FILE`, line</sql>
+
+    <select id="provinces" parameterClass="Person">
+        update log2 set
+        logger = :logger,
+        message = :message,
+        thread = :thread,
+        line = :line
+        where `timestamp`=:timestamp
+    </select>
+</mapper>

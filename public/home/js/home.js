@@ -1,6 +1,6 @@
 var flg = 0;
 
-load('index', 'dex', {}, function(resultData) {
+load('home', 'loginjudge', {}, function(resultData) {
     flg=resultData['data'];
     if(flg){
         $("#postingId").show();

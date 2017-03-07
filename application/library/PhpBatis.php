@@ -223,7 +223,7 @@ class PhpBatis{
                 foreach($parameter as $bindKey=>$bindValue)
                     $sqlText = preg_replace("/$bindKey/", $bindValue, $sqlText);
             }
-
+var_dump($sqlText);exit();
             if($isCache) {
                 $cacheObj = new Cache($cacheId, $this->configFilePath);
                 $result = unserialize( $cacheObj->get($cacheKey) );

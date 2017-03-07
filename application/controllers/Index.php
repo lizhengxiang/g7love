@@ -5,7 +5,7 @@
  * Date: 17-2-22
  * Time: 下午9:01
  */
-class IndexController extends Yaf_Controller_Abstract {
+class IndexController extends BaseController {
     private $_user;
     public function init(){
         if ($this->getRequest()->isXmlHttpRequest()) {
@@ -16,11 +16,16 @@ class IndexController extends Yaf_Controller_Abstract {
     
     public function dexAction() {//默认Action
         $dat =  $this->_user->Registered();
-        $this->getView()->assign($dat);
+        $this->display($dat);
     }
 
-    public function searchAction() {//默认Action
-        var_dump("lizhengxiang");exit();
-        $this->getView()->assign("content", "Hello 3333");
+    public function addAction() {//默认Action
+        $dat =  $this->_user->Registered();
+        $this->display($dat);
+    }
+
+    public function abcAction() {//默认Action
+        $dat = ["lizhengxiag"=>2993];// $this->_user->Registered();
+        $this->display($dat);
     }
 }

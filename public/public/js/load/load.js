@@ -5,8 +5,8 @@ function load(module, method, params, callback) {
     callback = callback || false;
     var self = this,
         result = false;
-    var url = 'http://g7love.com/index.php/';
-    var purl =url + module + '/' + method;
+    var url = 'http://g7love.com/index.php?c=';
+    var purl =url + module + '&a=' + method;
     var result = false;
     $.ajax({
         type: 'POST',

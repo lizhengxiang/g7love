@@ -11,14 +11,14 @@
     	<database id="sysvotes" default="true">
     		<property name="driver" value="pdo"/>
     		<property name="charset" value="UTF8"/>
-    		<property name="dsn" value="mysql:host=127.0.0.1;dbname=cat_joint"/>
+    		<property name="dsn" value="mysql:host=127.0.0.1;dbname=socialnetworking"/>
     		<property name="username" value="lzx"/>
     		<property name="password" value="lzx"/>
     	</database>
     	
     	<database id="syshotels">
     		<property name="driver" value="pdo"/>
-    		<property name="dsn" value="mysql:host=127.0.0.1;dbname=cat_joint"/>
+    		<property name="dsn" value="mysql:host=127.0.0.1;dbname=socialnetworking"/>
     		<property name="username" value="lzx"/>
     		<property name="password" value="lzx"/>
     	</database>
