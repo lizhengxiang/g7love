@@ -15,9 +15,14 @@ class RegisteredController extends BaseController {
     }
 
     public function provincesAction() {
-        $request = [];
-        $request['parentid'] = 20;
-        $dat =  $this->_Registered->provinces($request);
-        $this->display($dat);
+        $request = $this->getRequest()->getPost();
+        $result =  $this->_Registered->provinces($request);
+        $this->display($result);
+    }
+
+    public function getschoolAction(){
+        $request = $this->getRequest()->getPost();
+        $result =  $this->_Registered->provinces($request);
+        $this->display($result);
     }
 }

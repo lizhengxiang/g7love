@@ -10,10 +10,6 @@ Class HomeModel extends BaseModel{
      * 判断登陆　2016-10-12 23:44
      */
     public function LoginJudge(){
-
-        $data = $this->dao->selectList('Countries.select',13);
-        return $this->result($data,1,0);
-
         $userid = '';
         if($userid != ''){
             //表示当前用户已经

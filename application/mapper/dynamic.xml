@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="dynamic">
+    <select id="getdynamic" parameterClass="array">
+        SELECT
+            `dynamic`.`id`,
+            `dynamic`.`userid`,
+            `content`,
+            `pic1`,
+            `pic2`,
+            `pic3`,
+            `pic4`,
+            `dynamic`.`createtime`,
+            `praise`,
+            `forwardingNum`,
+            `reportNum`,
+            `registered`.`headPortrait`,
+            `registered`.`backgroundImage`,
+            `registered`.`motto`,
+            `registered`.`nickname`,
+            `registered`.`birthday`,
+            `registered`.`gender`,
+            `school`.`name` AS `school`
+        FROM
+            `dynamic`
+        LEFT JOIN `registered` ON registered.userid = dynamic.userid
+        LEFT JOIN `school` ON registered.school = school.id
+        WHERE
+            dynamic.deleted = 0
+        <isPropertyAvailable property="userid" prepend="AND">
+            dynamic.userid'=#userid#
+        </isPropertyAvailable>
+        <isPropertyAvailable property="id" prepend="AND">
+            dynamic.id =#id#
+        </isPropertyAvailable>
+        ORDER BY
+            `createtime` DESC
+    </select>
+
+    <select id="dynamiclog" parameterClass="array">
+        SELECT
+            'reportNum',
+            'praise',
+            'forwardingNum'
+        FROM
+            'dynamiclog'
+        WHERE
+            'userid' = #user# AND 'dynamicId'=#dynamicId#
+    </select>
+
+</sqlMap>

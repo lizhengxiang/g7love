@@ -1,14 +1,9 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
-<mapper>
-    <sql id="allFields">`TIMESTAMP`, logger, `LEVEL`, message, thread, `FILE`, line</sql>
-
-    <select id="provinces" parameterClass="Person">
-        update log2 set
-        logger = :logger,
-        message = :message,
-        thread = :thread,
-        line = :line
-        where `timestamp`=:timestamp
+<sqlMap namespace="registered">
+    <select id="provinces" parameterClass="int">
+        SELECT name, id FROM school WHERE parentid=#parentid#
     </select>
-</mapper>
+</sqlMap>
