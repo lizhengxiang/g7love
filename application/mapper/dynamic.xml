@@ -50,4 +50,19 @@
             'userid' = #user# AND 'dynamicId'=#dynamicId#
     </select>
 
+
+    <select id="selectDynamic" parameterClass="array">
+        SELECT
+            COUNT(*) as total
+        FROM
+            dynamiclog
+        WHERE
+            dynamicId = #dynamicId# and userid=#userid#
+        <isPropertyAvailable property="praise" prepend="AND">
+            praise =#praise#
+        </isPropertyAvailable>
+        <isPropertyAvailable property="praise" prepend="AND">
+            reportNum =#reportNum#
+        </isPropertyAvailable>
+    </select>
 </sqlMap>

@@ -337,7 +337,7 @@ class FPBatis {
 	 * Similar to insert, but for updates.
 	 */
 	function doUpdate($id, $obj, $fromForm=false) {
-		$ids = explode("\.", $id);
+		$ids = explode(".", $id);
 		if ($elm = $this->findMapElement($ids[0], 'update', $ids[1])) {
 			$stmt = $elm->nodeValue;
 			$pieces = explode("#", $stmt);
