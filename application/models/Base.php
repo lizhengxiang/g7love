@@ -8,9 +8,12 @@
 
 Class BaseModel{
     public $dao;
-    public function __construct()
+    public $user;
+
+    public function __construct($args)
     {
         $this->dao = Yaf_Registry::get('_db');
+        $this->isLogin($args);
     }
 
     /*
@@ -54,6 +57,39 @@ Class BaseModel{
         return json_encode($result);
     }
 
+
+    /**
+     * User: lizhengxinag
+     * createtime: 17-03-19 15:25
+     * functionRole:忽略验证
+     */
+    public function ignoreValidation(){
+        return [
+            'Home_loginjudge',
+            'Registered_provinces',
+            'Dynamic_getdynamic',
+            'Login_login'
+        ];
+    }
+
+    /**
+     * User: lizhengxinag
+     * createtime: 17-03-19 15:25
+     * functionRole:验证登录
+     */
+    public function isLogin($request){
+        $user = new StdClass();
+        if(!empty($request['Token'])){
+            $user->id = 100;
+            $user->username = 'wj';
+            $this->user = $user;
+        }else if(in_array($request['controller'].'_'.$request['action'],$this->ignoreValidation())){
+            $user->id = '';
+            $user->username = '';
+        }else{
+            echo $this->result('',0,0);exit();
+        }
+    }
     /*
      *更具id和userid检查该用户有没有权限修改帖子的权限
      * return １表示有权限，0表示没有权限

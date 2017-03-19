@@ -6,20 +6,24 @@
  * Time: 下午9:05
  */
 class DynamicModel extends BaseModel{
+    public function __construct($args)
+    {
+        parent::__construct($args);
+    }
 
     public function getdynamic($args){
+        $args['userid'] = $this->user->id;
         $result = $this->dao->selectList("dynamic.getdynamic",$args);
         /*
          * 这里需要处理该用户有没有登陆判断有没有对动态操作AND动态发表离当前时间
          * @todo 计算时间有可能会耗时，dai观察看看会不会影响速度
          */
-        $user =100;//  Yii::$app->user->getId();
-        if(!empty($user)){
+        if(!empty($this->user->id)){
             $len = sizeof($result);
             for ($i=0; $i<$len; $i++){
-                $query['userid']=$user;
+                $query['user']=$this->user->id;
                 $query['dynamicId']=$result[$i]['id'];
-                $row = $this->dao->selectOne("dynamic.dynamiclog",$args);
+                $row = $this->dao->selectOne("dynamic.dynamiclog",$query);
                 if(!empty($row)){
                     $result[$i]['reportNumTag'] = $row['reportNum'];
                     $result[$i]['praiseTag'] = $row['praise'];
@@ -55,7 +59,7 @@ class DynamicModel extends BaseModel{
      */
     public function doEevaluation($args){
         //检查该用户是否第一次操作
-        $args['userid'] = 100;
+        $args['userid'] = $this->user->id;
         if($args['type'] == 1){
             $args['praise'] = 1;
         }elseif($args['type'] == 2){
@@ -64,33 +68,25 @@ class DynamicModel extends BaseModel{
         $data = $this->dao->selectOne("dynamic.selectDynamic",$args);
         $val = $data['total'];
         if(!$val && $args['type'] == 1){
+            $tmp = $this->dao->selectOne("dynamic.selectDynamic",['id'=>$args['id'],'userid'=>$args['userid']]);
             //更新点赞,更新两个表，没有当前记录则需要创建
-            if(!$val){
-                Yii::$app->db->createCommand('insert INTO dynamiclog(praise,dynamicId,userid) VALUES (1,:dynamicId,:userid)',[
-                    ':dynamicId' => $args['id'],':userid' => Yii::$app->user->getId()
-                ])->execute();
+            if(!$tmp['total']){
+                $this->dao->insert("dynamic.insertDynamiclogPraise",$args);
             }else{
-                Yii::$app->db->createCommand('update dynamiclog set praise=1 WHERE dynamicId=:dynamicId AND userid=:userid',[':dynamicId' => $args['id'],':userid' =>Yii::$app->user->getId()])
-                    ->execute();
+                $this->dao->update("dynamic.updateDynamiclogPraise",$args);
             }
-            //更新动态表
-            Yii::$app->db->createCommand('update dynamic set praise=praise+1,updatetime=now()  WHERE id=:dynamicId',[':dynamicId' => $args['id']])
-                ->execute();
+            $this->dao->update("dynamic.updateDynamicPraise",$args);
             return 1;
         }elseif(!$val && $args['type'] == 2){
+            $tmp = $this->dao->selectOne("dynamic.selectDynamic",['id'=>$args['id'],'userid'=>$args['userid']]);
             //@todo　这里需要考虑举报达到五次后怎么处理
             //更新点赞,更新两个表，没有当前记录则需要创建
-            if(!$val){
-                Yii::$app->db->createCommand('insert INTO dynamiclog(reportNum,dynamicId,userid) VALUES (1,:dynamicId,:userid)',[
-                    ':dynamicId' => $args['id'],':userid' => Yii::$app->user->getId()
-                ])->execute();
+            if(!$tmp['total']){
+                $this->dao->insert("dynamic.insertDynamiclogReportNum",$args);
             }else{
-                Yii::$app->db->createCommand('update dynamiclog set reportNum=1 WHERE dynamicId=:dynamicId AND userid=:userid',[':dynamicId' => $args['id'],':userid' =>Yii::$app->user->getId()])
-                    ->execute();
+                $this->dao->update("dynamic.updateDynamiclogReportNum",$args);
             }
-            //更新动态表
-            Yii::$app->db->createCommand('update dynamic set reportNum=reportNum+1,updatetime=now()  WHERE id=:dynamicId',[':dynamicId' => $args['id']])
-                ->execute();
+            $this->dao->update("dynamic.updateDynamicReportNum",$args);
             return 1;
         }else{
             //非法操作

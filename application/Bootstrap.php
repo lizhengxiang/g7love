@@ -32,9 +32,6 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
     }
 
     public function _initDb(Yaf_Dispatcher $dispatcher){
-        /*$db = new PhpBatis(APP_PATH.'/application/config.xml');
-        Yaf_Registry::set('_db', $db);*/
-
         $db = new FPBatis(APP_PATH.'/application/sqlMap.xml');
         Yaf_Registry::set('_db', $db);
 

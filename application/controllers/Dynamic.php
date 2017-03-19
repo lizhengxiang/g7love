@@ -11,7 +11,7 @@ class DynamicController extends BaseController{
         if ($this->getRequest()->isXmlHttpRequest()) {
             Yaf_Dispatcher::getInstance()->disableView();
         }
-        $this->_Dynamic = new DynamicModel();
+        $this->_Dynamic = new DynamicModel($this->getToken());
     }
 
     public function getdynamicAction() {
@@ -22,12 +22,6 @@ class DynamicController extends BaseController{
     
     public function evaluationAction(){
         $request = $this->getRequest()->getPost();
-        $user = null;
-        if ($user) {
-            $request['code'] = 0;
-            $request['status'] = 0;
-            $this->display(json_encode($request));
-        }
         $data =  $this->_Dynamic->evaluation($request);
         $this->display($data);
     }

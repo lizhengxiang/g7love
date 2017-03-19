@@ -11,7 +11,7 @@ class RegisteredController extends BaseController {
         if ($this->getRequest()->isXmlHttpRequest()) {
             Yaf_Dispatcher::getInstance()->disableView();
         }
-        $this->_Registered = new RegisteredModel();
+        $this->_Registered = new RegisteredModel($this->getToken());
     }
 
     public function provincesAction() {

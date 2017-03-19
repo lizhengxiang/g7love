@@ -11,7 +11,7 @@ class HomeController extends BaseController {
         if ($this->getRequest()->isXmlHttpRequest()) {
             Yaf_Dispatcher::getInstance()->disableView();
         }
-        $this->_Home = new HomeModel();
+        $this->_Home = new HomeModel($this->getToken());
     }
 
     public function loginjudgeAction() {//默认Action

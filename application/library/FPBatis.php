@@ -231,6 +231,10 @@ class FPBatis {
 			$stmt = $this->select($params, $debug,$elm);
 			if ($debug || $this->debug)
 				echo 'DEBUG: ' . $stmt . '<br/>';
+			$myfile = fopen("/home/lizhengxiang/g7love/application/loginfo/sql.txt", "a") or die("Unable to open file!");
+			$txt = date('Y-m-d H:i:s')."   ".$stmt."\n";
+			fwrite($myfile, $txt);
+			fclose($myfile);
 			$result = $this->conn->query($stmt,PDO::FETCH_ASSOC	);
 			$results = [];
 			foreach ($result as $data){
@@ -291,6 +295,10 @@ class FPBatis {
 			$stmt = $this->select($params, $debug,$elm);
 			if ($debug || $this->debug)
 				echo 'DEBUG: ' . $stmt . '<br/>';
+			$myfile = fopen("/home/lizhengxiang/g7love/application/loginfo/sql.txt", "a") or die("Unable to open file!");
+			$txt = date('Y-m-d H:i:s')."   ".$stmt."\n";
+			fwrite($myfile, $txt);
+			fclose($myfile);
 			$result = $this->conn->query($stmt,PDO::FETCH_ASSOC	);
 			foreach ($result as $data){
 				$results = $data;
@@ -304,7 +312,7 @@ class FPBatis {
 	 * Perform an insert given an array of variables and an insert id to
 	 * use, returns the object back (null if incorrect id).
 	 */
-	function doInsert($id, $obj, $fromForm=false) {
+	function insert($id, $obj, $fromForm=false) {
 		$ids = explode(".", $id);
 		if ($elm = $this->findMapElement($ids[0], 'insert', $ids[1])) {
 			$elm = $elm->cloneNode(true);
@@ -321,14 +329,12 @@ class FPBatis {
 			}
 			if ($this->debug)
 				echo 'DEBUG: ' . $stmt . '<br/>';
-			mysql_query($stmt, $this->conn) or die('There was an error running your SQL statement: ' . $stmt);
-			if ($subStmt != null) {
-				if ($this->debug)
-					echo 'DEBUG: ' . $subStmt->nodeValue . '<br/>';
-				$result = mysql_query($subStmt->nodeValue, $this->conn) or die('There was an error running your SQL statement: ' . $subStmt->nodeValue);
-				$obj[$subStmt->getAttribute('keyProperty')] = mysql_result($result,0,0);
-			}
-			return $obj;
+			$myfile = fopen("/home/lizhengxiang/g7love/application/loginfo/sql.txt", "a") or die("Unable to open file!");
+			$txt = date('Y-m-d H:i:s')."   ".$stmt."\n";
+			fwrite($myfile, $txt);
+			fclose($myfile);
+			$result = $this->conn->query($stmt,PDO::FETCH_ASSOC	);
+			return $result;
 		}
 		return null;
 	}
@@ -336,7 +342,7 @@ class FPBatis {
 	/**
 	 * Similar to insert, but for updates.
 	 */
-	function doUpdate($id, $obj, $fromForm=false) {
+	function update($id, $obj, $fromForm=false) {
 		$ids = explode(".", $id);
 		if ($elm = $this->findMapElement($ids[0], 'update', $ids[1])) {
 			$stmt = $elm->nodeValue;
@@ -349,8 +355,12 @@ class FPBatis {
 			}
 			if ($this->debug)
 				echo 'DEBUG: ' . $stmt . '<br/>';
-			mysql_query($stmt, $this->conn) or die('There was an error running your SQL statement: ' . $stmt);
-			return $obj;
+			$myfile = fopen("/home/lizhengxiang/g7love/application/loginfo/sql.txt", "a") or die("Unable to open file!");
+			$txt = date('Y-m-d H:i:s')."   ".$stmt."\n";
+			fwrite($myfile, $txt);
+			fclose($myfile);
+			$result = $this->conn->query($stmt,PDO::FETCH_ASSOC	);
+			return $result;
 		}
 		return null;
 	}
@@ -360,7 +370,7 @@ class FPBatis {
 	 * null if id not valid.
 	 */
 	function doDelete($id, $obj) {
-		$ids = explode("\.", $id);
+		$ids = explode(".", $id);
 		if ($elm = $this->findMapElement($ids[0], 'delete', $ids[1])) {
 			$stmt = $elm->nodeValue;
 			$pieces = explode("#", $stmt);

@@ -6,6 +6,10 @@
  * Time: 下午9:59
  */
 Class RegisteredModel extends BaseModel{
+    public function __construct($args)
+    {
+        parent::__construct($args);
+    }
 
     /**
      * 获取省份，学校

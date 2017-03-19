@@ -30,7 +30,7 @@
         WHERE
             dynamic.deleted = 0
         <isPropertyAvailable property="userid" prepend="AND">
-            dynamic.userid'=#userid#
+            dynamic.userid=#userid#
         </isPropertyAvailable>
         <isPropertyAvailable property="id" prepend="AND">
             dynamic.id =#id#
@@ -41,13 +41,13 @@
 
     <select id="dynamiclog" parameterClass="array">
         SELECT
-            'reportNum',
-            'praise',
-            'forwardingNum'
+            reportNum,
+            praise,
+            forwardingNum
         FROM
-            'dynamiclog'
+            `dynamiclog`
         WHERE
-            'userid' = #user# AND 'dynamicId'=#dynamicId#
+            userid = #user# AND dynamicId=#dynamicId#
     </select>
 
 
@@ -57,12 +57,37 @@
         FROM
             dynamiclog
         WHERE
-            dynamicId = #dynamicId# and userid=#userid#
+            dynamicId = #id# and userid=#userid#
         <isPropertyAvailable property="praise" prepend="AND">
             praise =#praise#
         </isPropertyAvailable>
-        <isPropertyAvailable property="praise" prepend="AND">
+        <isPropertyAvailable property="reportNum" prepend="AND">
             reportNum =#reportNum#
         </isPropertyAvailable>
     </select>
+
+    <insert id="insertDynamiclogPraise" parameterClass="array">
+        insert INTO dynamiclog(praise,dynamicId,userid) VALUES (1,#id#,#userid#)
+    </insert>
+
+    <update id="updateDynamiclogPraise" parameterClass="array">
+        update dynamiclog set praise=1 WHERE dynamicId=#id# AND userid=#userid#
+    </update>
+
+    <update id="updateDynamicPraise" parameterClass="array">
+        update dynamic set praise=praise+1,updatetime=now()  WHERE id=#id#
+    </update>
+
+    <insert id="insertDynamiclogReportNum" parameterClass="array">
+        insert INTO dynamiclog(reportNum,dynamicId,userid) VALUES (1,#id#,#userid#)
+    </insert>
+
+    <update id="updateDynamiclogReportNum" parameterClass="array">
+        update dynamiclog set reportNum=1 WHERE dynamicId=#id# AND userid=#userid#
+    </update>
+
+    <update id="updateDynamicReportNum" parameterClass="array">
+        update dynamic set reportNum=reportNum+1,updatetime=now()  WHERE id=#id#
+    </update>
+
 </sqlMap>

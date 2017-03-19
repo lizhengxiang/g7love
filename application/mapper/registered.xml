@@ -6,4 +6,8 @@
     <select id="provinces" parameterClass="int">
         SELECT name, id FROM school WHERE parentid=#parentid#
     </select>
+
+    <select id="login" parameterClass="array">
+        SELECT * FROM registered WHERE userid = #username# AND `password` = #password#
+    </select>
 </sqlMap>

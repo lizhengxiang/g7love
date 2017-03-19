@@ -1,0 +1,80 @@
+2017-03-19 18:07:03    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' AND  praise ='1' 
+2017-03-19 18:07:03    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' 
+2017-03-19 18:07:03   
+        update dynamiclog set praise=1 WHERE dynamicId='5' AND userid='100'
+    
+2017-03-19 18:07:03   
+        update dynamic set praise=praise+1,updatetime=now()  WHERE id='5'
+    
+2017-03-19 18:07:03    SELECT `dynamic`.`id`, `dynamic`.`userid`, `content`, `pic1`, `pic2`, `pic3`, `pic4`, `dynamic`.`createtime`, `praise`, `forwardingNum`, `reportNum`, `registered`.`headPortrait`, `registered`.`backgroundImage`, `registered`.`motto`, `registered`.`nickname`, `registered`.`birthday`, `registered`.`gender`, `school`.`name` AS `school` FROM `dynamic` LEFT JOIN `registered` ON registered.userid = dynamic.userid LEFT JOIN `school` ON registered.school = school.id WHERE dynamic.deleted = 0 AND  dynamic.userid='100' AND  dynamic.id ='5'  ORDER BY `createtime` DESC 
+2017-03-19 18:07:03    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='5' 
+2017-03-19 18:10:12    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' AND  reportNum ='1' 
+2017-03-19 18:10:12    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' 
+2017-03-19 18:10:12   
+        update dynamiclog set reportNum=1 WHERE dynamicId='5' AND userid='100'
+    
+2017-03-19 18:10:12   
+        update dynamic set reportNum=reportNum+1,updatetime=now()  WHERE id='5'
+    
+2017-03-19 18:10:12    SELECT `dynamic`.`id`, `dynamic`.`userid`, `content`, `pic1`, `pic2`, `pic3`, `pic4`, `dynamic`.`createtime`, `praise`, `forwardingNum`, `reportNum`, `registered`.`headPortrait`, `registered`.`backgroundImage`, `registered`.`motto`, `registered`.`nickname`, `registered`.`birthday`, `registered`.`gender`, `school`.`name` AS `school` FROM `dynamic` LEFT JOIN `registered` ON registered.userid = dynamic.userid LEFT JOIN `school` ON registered.school = school.id WHERE dynamic.deleted = 0 AND  dynamic.userid='100' AND  dynamic.id ='5'  ORDER BY `createtime` DESC 
+2017-03-19 18:10:12    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='5' 
+2017-03-19 18:10:17    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' AND  reportNum ='1' 
+2017-03-19 18:10:17    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' 
+2017-03-19 18:10:17   
+        update dynamiclog set reportNum=1 WHERE dynamicId='5' AND userid='100'
+    
+2017-03-19 18:10:17   
+        update dynamic set reportNum=reportNum+1,updatetime=now()  WHERE id='5'
+    
+2017-03-19 18:10:17    SELECT `dynamic`.`id`, `dynamic`.`userid`, `content`, `pic1`, `pic2`, `pic3`, `pic4`, `dynamic`.`createtime`, `praise`, `forwardingNum`, `reportNum`, `registered`.`headPortrait`, `registered`.`backgroundImage`, `registered`.`motto`, `registered`.`nickname`, `registered`.`birthday`, `registered`.`gender`, `school`.`name` AS `school` FROM `dynamic` LEFT JOIN `registered` ON registered.userid = dynamic.userid LEFT JOIN `school` ON registered.school = school.id WHERE dynamic.deleted = 0 AND  dynamic.userid='100' AND  dynamic.id ='5'  ORDER BY `createtime` DESC 
+2017-03-19 18:10:17    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='5' 
+2017-03-19 18:10:39    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' AND  reportNum ='1' 
+2017-03-19 18:10:39    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' 
+2017-03-19 18:11:22    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' AND  reportNum ='1' 
+2017-03-19 18:11:22    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' 
+2017-03-19 18:11:22   
+        insert INTO dynamiclog(reportNum,dynamicId,userid) VALUES (1,'5','100')
+    
+2017-03-19 18:11:22   
+        update dynamic set reportNum=reportNum+1,updatetime=now()  WHERE id='5'
+    
+2017-03-19 18:11:22    SELECT `dynamic`.`id`, `dynamic`.`userid`, `content`, `pic1`, `pic2`, `pic3`, `pic4`, `dynamic`.`createtime`, `praise`, `forwardingNum`, `reportNum`, `registered`.`headPortrait`, `registered`.`backgroundImage`, `registered`.`motto`, `registered`.`nickname`, `registered`.`birthday`, `registered`.`gender`, `school`.`name` AS `school` FROM `dynamic` LEFT JOIN `registered` ON registered.userid = dynamic.userid LEFT JOIN `school` ON registered.school = school.id WHERE dynamic.deleted = 0 AND  dynamic.userid='100' AND  dynamic.id ='5'  ORDER BY `createtime` DESC 
+2017-03-19 18:11:22    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='5' 
+2017-03-19 18:11:28    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' AND  praise ='1' 
+2017-03-19 18:11:28    SELECT COUNT(*) as total FROM dynamiclog WHERE dynamicId = '5' and userid='100' 
+2017-03-19 18:11:28   
+        update dynamiclog set praise=1 WHERE dynamicId='5' AND userid='100'
+    
+2017-03-19 18:11:28   
+        update dynamic set praise=praise+1,updatetime=now()  WHERE id='5'
+    
+2017-03-19 18:11:28    SELECT `dynamic`.`id`, `dynamic`.`userid`, `content`, `pic1`, `pic2`, `pic3`, `pic4`, `dynamic`.`createtime`, `praise`, `forwardingNum`, `reportNum`, `registered`.`headPortrait`, `registered`.`backgroundImage`, `registered`.`motto`, `registered`.`nickname`, `registered`.`birthday`, `registered`.`gender`, `school`.`name` AS `school` FROM `dynamic` LEFT JOIN `registered` ON registered.userid = dynamic.userid LEFT JOIN `school` ON registered.school = school.id WHERE dynamic.deleted = 0 AND  dynamic.userid='100' AND  dynamic.id ='5'  ORDER BY `createtime` DESC 
+2017-03-19 18:11:28    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='5' 
+2017-03-19 18:14:23    SELECT name, id FROM school WHERE parentid='0' 
+2017-03-19 18:14:24    SELECT `dynamic`.`id`, `dynamic`.`userid`, `content`, `pic1`, `pic2`, `pic3`, `pic4`, `dynamic`.`createtime`, `praise`, `forwardingNum`, `reportNum`, `registered`.`headPortrait`, `registered`.`backgroundImage`, `registered`.`motto`, `registered`.`nickname`, `registered`.`birthday`, `registered`.`gender`, `school`.`name` AS `school` FROM `dynamic` LEFT JOIN `registered` ON registered.userid = dynamic.userid LEFT JOIN `school` ON registered.school = school.id WHERE dynamic.deleted = 0 AND  dynamic.userid='100'  ORDER BY `createtime` DESC 
+2017-03-19 18:14:24    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='5' 
+2017-03-19 18:14:24    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='4' 
+2017-03-19 18:14:24    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='3' 
+2017-03-19 18:14:24    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='2' 
+2017-03-19 18:14:24    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='1' 
+2017-03-19 18:14:47    SELECT name, id FROM school WHERE parentid='0' 
+2017-03-19 18:14:47    SELECT `dynamic`.`id`, `dynamic`.`userid`, `content`, `pic1`, `pic2`, `pic3`, `pic4`, `dynamic`.`createtime`, `praise`, `forwardingNum`, `reportNum`, `registered`.`headPortrait`, `registered`.`backgroundImage`, `registered`.`motto`, `registered`.`nickname`, `registered`.`birthday`, `registered`.`gender`, `school`.`name` AS `school` FROM `dynamic` LEFT JOIN `registered` ON registered.userid = dynamic.userid LEFT JOIN `school` ON registered.school = school.id WHERE dynamic.deleted = 0 AND  dynamic.userid='100'  ORDER BY `createtime` DESC 
+2017-03-19 18:14:47    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='5' 
+2017-03-19 18:14:47    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='4' 
+2017-03-19 18:14:47    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='3' 
+2017-03-19 18:14:47    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='2' 
+2017-03-19 18:14:47    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='1' 
+2017-03-19 18:14:50    SELECT name, id FROM school WHERE parentid='0' 
+2017-03-19 18:14:50    SELECT `dynamic`.`id`, `dynamic`.`userid`, `content`, `pic1`, `pic2`, `pic3`, `pic4`, `dynamic`.`createtime`, `praise`, `forwardingNum`, `reportNum`, `registered`.`headPortrait`, `registered`.`backgroundImage`, `registered`.`motto`, `registered`.`nickname`, `registered`.`birthday`, `registered`.`gender`, `school`.`name` AS `school` FROM `dynamic` LEFT JOIN `registered` ON registered.userid = dynamic.userid LEFT JOIN `school` ON registered.school = school.id WHERE dynamic.deleted = 0 AND  dynamic.userid='100'  ORDER BY `createtime` DESC 
+2017-03-19 18:14:50    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='5' 
+2017-03-19 18:14:50    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='4' 
+2017-03-19 18:14:50    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='3' 
+2017-03-19 18:14:50    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='2' 
+2017-03-19 18:14:50    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='1' 
+2017-03-19 18:16:08    SELECT name, id FROM school WHERE parentid='0' 
+2017-03-19 18:16:09    SELECT `dynamic`.`id`, `dynamic`.`userid`, `content`, `pic1`, `pic2`, `pic3`, `pic4`, `dynamic`.`createtime`, `praise`, `forwardingNum`, `reportNum`, `registered`.`headPortrait`, `registered`.`backgroundImage`, `registered`.`motto`, `registered`.`nickname`, `registered`.`birthday`, `registered`.`gender`, `school`.`name` AS `school` FROM `dynamic` LEFT JOIN `registered` ON registered.userid = dynamic.userid LEFT JOIN `school` ON registered.school = school.id WHERE dynamic.deleted = 0 AND  dynamic.userid='100'  ORDER BY `createtime` DESC 
+2017-03-19 18:16:09    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='5' 
+2017-03-19 18:16:09    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='4' 
+2017-03-19 18:16:09    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='3' 
+2017-03-19 18:16:09    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='2' 
+2017-03-19 18:16:09    SELECT reportNum, praise, forwardingNum FROM `dynamiclog` WHERE userid = '100' AND dynamicId='1' 
