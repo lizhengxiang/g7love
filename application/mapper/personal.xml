@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="personal">
+    <select id="getThumbUp" parameterClass="array">
+        SELECT
+            COUNT(1) AS total
+        FROM
+            thumblog
+        WHERE
+            thumbupuserid = #thumbupuserid#
+            AND userid = #userid#
+            AND createtime >= #startTime#
+            AND createtime &lt; #endTime#
+    </select>
+
+    <update id="addThumbUp" parameterClass="array">
+        update registered set thumb=thumb+1 WHERE userid=#userid#
+    </update>
+
+    <insert id="ThumbUplog" parameterClass="array">
+        insert INTO thumblog(thumbupuserid,userid) VALUES (#thumbupuserid#,#userid#)
+    </insert>
+
+    <select id="getUserInformation" parameterClass="int">
+        SELECT
+            registered.headPortrait,registered.backgroundImage,registered.motto,registered.nickname,
+            registered.birthday,registered.gender,registered.createtime,registered.thumb,school.name as school
+        FROM
+            registered
+        LEFT JOIN school on registered.school = school.id
+        WHERE
+            userid = #userid#
+    </select>
+</sqlMap>
