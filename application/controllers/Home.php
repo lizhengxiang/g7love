@@ -18,4 +18,10 @@ class HomeController extends BaseController {
         $dat =  $this->_Home->LoginJudge();
         $this->display($dat);
     }
+    
+    public function postingAction(){
+        $request = $this->getRequest()->getPost();
+        $data =  $this->_Home->Posting($request);
+        $this->display($data);
+    }
 }
